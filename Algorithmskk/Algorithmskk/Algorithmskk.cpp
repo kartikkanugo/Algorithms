@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include "divideandconquer.h"
 
 int main()
 {

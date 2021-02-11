@@ -5,4 +5,4 @@ project(Kk_algorithms)
 add_executable(${PROJECT_NAME} main.cpp )
 
 add_subdirectory(src)
-add_subdirectory(include/)
+include_directories(${CMAKE_SOURCE_DIR}/src/include)

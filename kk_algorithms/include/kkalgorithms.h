@@ -4,10 +4,10 @@
 using namespace std;
 
 
-typedef enum k_error
+typedef enum kerr_t
 {
-	err_no_error,
-	err_invalid_input
+	ERR_NO_ERROR = 0,
+	ERR_INVALID_INPUT = 1
 
 };
 

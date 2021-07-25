@@ -2,18 +2,22 @@
 #include "kkdivideandconquer.h"
 
 
+
 using namespace std;
 
 int main() {
-	string inp1{" "}, inp2{" "};
+	string inp1{"3141592653589793238462643383279502884197169399375105820974944592"}, inp2{"2718281828459045235360287471352662497757247093699959574966967627"};
 	k_result mainResult;
-	k_error ret;
-
-	
+	kerr_t ret;
 	DivConquer obj;
-	ret = obj.karatsubaMultiplication(inp1, inp2, &mainResult);
-	if(ret == err_no_error)
-		cout << "no error \n";
+	
+	ret = obj.karatsuba_multiplication(inp1, inp2, mainResult);
+	if (ret != kerr_t::ERR_NO_ERROR) {
+		cout << ret;
+	}
+	else {
+		cout << mainResult.res_stringtype << endl;
+	}
 	
 	
 	

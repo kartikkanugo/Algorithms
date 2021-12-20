@@ -1,5 +1,6 @@
 #include <iostream>
 #include "kkdivideandconquer.h"
+#include "kkdatastructures.h"
 
 
 
@@ -21,17 +22,18 @@ int main() {
 	}
 	
 
-	string filePath{"D:/Computer-Science/Algorithms/inputarr.txt"};
-	ret = obj.divide_conquer_sorting_inversions(filePath, mainResult);
-	
-	if (ret != kerr_t::ERR_NO_ERROR) {
-		cout << ret;
-	}
-	else {
-		cout << mainResult.res_integer << endl;
-	}
-	
-	
+
+	// Create own stack, linkedlist, queue, binary tree
+
+	Kkstack obj2;
+	obj2.push(1);
+	obj2.push(3);
+
+	cout << obj2.top_element() << obj2.is_empty() << obj2.is_full() << endl;
+	obj2.pop();
+	cout << obj2.top_element() << obj2.is_empty() << obj2.is_full() << endl;
+	obj2.pop();
+	cout << obj2.top_element() << obj2.is_empty() << obj2.is_full() << endl;
 	
 	cout << "kkkk\n";
 

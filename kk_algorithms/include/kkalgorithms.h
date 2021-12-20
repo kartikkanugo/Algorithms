@@ -19,3 +19,6 @@ struct k_result {
 	double res_double{0};
 	int resArr[100000];
 };
+
+
+

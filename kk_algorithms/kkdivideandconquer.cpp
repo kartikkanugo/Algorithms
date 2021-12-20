@@ -155,9 +155,29 @@ kerr_t DivConquer::karatsuba_multiplication(string& inp1, string& inp2, k_result
 * Divide and Conquer functions
 
 */
-kerr_t merge_sort_algo(int arr[], k_result& res)
+kerr_t merge_sort_algo(int arr[], int lengtharr, k_result& res)
 {
-	int lengtharr = sizeof(arr) / sizeof(arr[0]);
+
+
+	if (lengtharr == 0 || lengtharr == 1) {
+		res.res_integer = 0;
+		return ERR_NO_ERROR;
+	}
+
+	// left division
+
+	merge_sort_algo(arr, lengtharr / 2, res);
+
+
+
+
+		// right division
+
+	merge_sort_algo(&arr[lengtharr / 2], lengtharr / 2, res);
+
+
+
+
 
 
 
@@ -191,8 +211,9 @@ kerr_t DivConquer::divide_conquer_sorting_inversions(string& inp1, k_result& res
 
 	fs.close();
 
+	int lengtharr = sizeof(inpArr) / sizeof(inpArr[0]);
 
-	ret = merge_sort_algo(inpArr, result);
+	ret = merge_sort_algo(inpArr, lengtharr, result);
 
 
 

@@ -21,3 +21,27 @@ public:
 	bool is_empty();
 	bool is_full();
 };
+
+
+
+// Linked list stack
+class Kkstackll {
+private:
+
+	int capacity;
+
+
+public:
+	int arr[MAX_STACK_ELEMENTS];
+	// stack functions 
+	Kkstackll()
+	{
+		capacity = -1;
+	}
+	bool push(int data);
+	int pop();
+	int top_element();
+	int size();
+	bool is_empty();
+	bool is_full();
+};

@@ -1,6 +1,7 @@
 #include <iostream>
 #include "kkdivideandconquer.h"
 #include "kkdatastructures.h"
+#include "kksortsearch.h"
 
 
 
@@ -37,6 +38,13 @@ int main() {
 	
 	cout << "kkkk\n";
 
+
+	// sorting 
+
+	vector<int> a = { 1, 3, 9, 7, 8 };
+	Kksort ob3;
+	ob3.insertion_sort(a);
+	cout << a[0] << a[1] << a[2] << a[3] << a[4];
 	return 0;
 
 }

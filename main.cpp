@@ -41,10 +41,10 @@ int main() {
 
 	// sorting 
 
-	vector<int> a = { 1, 3, 9, 7, 8 };
+	vector<int> a = { 1, 9, 3,4,6};
 	Kksort ob3;
-	ob3.insertion_sort(a);
-	cout << a[0] << a[1] << a[2] << a[3] << a[4];
+	ob3.merge_sort(a);
+	cout << a[0] << a[1] << a[2] << a[3] ;
 	return 0;
 
 }

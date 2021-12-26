@@ -1,3 +1,5 @@
+#pragma
+
 #include "kkalgorithms.h"
 #include <vector>
 
@@ -24,6 +26,20 @@ public:
 	* O(n2) worst case
 	*/
 	kerr_t insertion_sort(vector<int>& inp);
+	/**
+	* Shell sort is the best O(n2) algorithm it works on top of insertion sort
+	* It uses gap theory
+	* O(n2) worst case
+	*/
+	kerr_t shell_sort(vector<int>& inp);
+	/**
+	* Merge sort is the a divide and conquer algorithm
+	* First divide it to a single value array then in the combine step compare and combine
+	* O(nlogn) worst case
+	*/
+	kerr_t merge_sort(vector<int>& inp);
+
+
 
 
 

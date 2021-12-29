@@ -41,9 +41,9 @@ int main() {
 
 	// sorting 
 
-	vector<int> a = { 1, 9, 3,4,6};
+	vector<int> a = { 1, 9, 3,4,6,8,12};
 	Kksort ob3;
-	ob3.merge_sort(a);
+	ob3.quick_sort(a);
 	cout << a[0] << a[1] << a[2] << a[3] ;
 	return 0;
 

@@ -170,3 +170,54 @@ kerr_t Kksort::merge_sort(vector<int>& inp)
 
 	return ERR_NO_ERROR;
 }
+
+kerr_t k_swap(int *a, int*b) {
+	int t = *a;
+	*a = *b;
+	*b = t;
+	return ERR_NO_ERROR;
+
+}
+kerr_t partition(vector<int>& inp, const int low, const int high, int &res) {
+
+	int pivot = inp[high];
+	int i = low - 1;
+	for (int j = low; j <= high; j++) {
+
+		if (inp[j] < pivot) {
+			i++;
+			k_swap(&inp[i], &inp[j]);
+		}
+
+	}
+	
+	k_swap(&inp[i + 1], &inp[high]); // swap with pivot
+	res = i + 1;
+
+	return ERR_NO_ERROR;
+}
+
+
+kerr_t quick_sort_internal(vector<int>& inp, int low, int high) {
+
+	if (low < high) {
+		int pi;
+		partition(inp, low, high, pi);
+
+		quick_sort_internal(inp, low, pi - 1);
+		quick_sort_internal(inp, pi + 1, high);
+	}
+
+	return ERR_NO_ERROR;
+}
+
+
+
+kerr_t Kksort::quick_sort(vector<int>& inp)
+{
+
+
+	quick_sort_internal(inp, 0, inp.size() - 1);
+
+	return ERR_NO_ERROR;
+}

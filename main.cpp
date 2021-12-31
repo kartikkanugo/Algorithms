@@ -41,9 +41,9 @@ int main() {
 
 	// sorting 
 
-	vector<int> a = { 1, 9, 3,4,6,8,12};
+	vector<float> a = { 2.5,3.4,1.23,1.62,2.3,2.2,4.5};
 	Kksort ob3;
-	ob3.quick_sort(a);
+	ob3.bucket_sort(a);
 	cout << a[0] << a[1] << a[2] << a[3] ;
 	return 0;
 

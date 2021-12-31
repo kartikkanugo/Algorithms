@@ -45,6 +45,17 @@ public:
 	* O(n2) worst case
 	*/
 	kerr_t quick_sort(vector<int>& inp);
+	/**
+	* Counting sort has a worst case of O(n)
+	* Counting sort cannot be used for floats or indefinite range of the values
+	*/
+	kerr_t counting_sort(vector<int>& inp);
+	/**
+	* Bucket sort has a worst case of O(n), 
+	* function is not complete cannot be used for anykind of input
+	* Can be used for the floating points
+	*/
+	kerr_t bucket_sort(vector<float>& inp);
 
 
 

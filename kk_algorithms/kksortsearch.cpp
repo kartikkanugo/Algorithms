@@ -1,6 +1,6 @@
 #include "include\kksortsearch.h"
 #include <iostream>
-
+#include <algorithm>
 
 
 kerr_t Kksort::bubble_sort(vector<int>& inp)
@@ -95,6 +95,8 @@ kerr_t Kksort::shell_sort(vector<int>& inp)
 	return ERR_NO_ERROR;
 }
 
+//*********************//
+
 kerr_t merge_internal(vector<int>& inp, const int start, const int mid, const int finish) {
 
 
@@ -171,6 +173,10 @@ kerr_t Kksort::merge_sort(vector<int>& inp)
 	return ERR_NO_ERROR;
 }
 
+
+//*********************//
+
+
 kerr_t k_swap(int *a, int*b) {
 	int t = *a;
 	*a = *b;
@@ -218,6 +224,77 @@ kerr_t Kksort::quick_sort(vector<int>& inp)
 
 
 	quick_sort_internal(inp, 0, inp.size() - 1);
+
+	return ERR_NO_ERROR;
+}
+
+
+//*********************//
+kerr_t Kksort::counting_sort(vector<int>& inp)
+{
+	int max = *std::max_element(inp.begin(), inp.end());
+	int min = *std::min_element(inp.begin(), inp.end());
+	int range = max - min + 1, i=0;
+
+	vector<int> count(range), output(inp.size());
+
+	// Count by adding the number of values
+
+	for (i = 0; i < inp.size(); i++) {
+		count[inp[i]-min]++;
+	}
+
+	// Perform addition
+
+	for (i = 1; i < range; i++) {
+		count[i] += count[i - 1];
+	}
+
+	// 
+
+	for (i = 0; i < inp.size(); i++) {
+		output[count[inp[i] - min]-1] = inp[i];
+		count[inp[i] - min]--;
+	}
+
+	for (i = 0; i < inp.size(); i++) {
+		inp[i] = output[i];
+	}
+
+	return ERR_NO_ERROR;
+}
+
+//*********************//
+kerr_t Kksort::bucket_sort(vector<float>& inp)
+{
+	if (*std::max_element(inp.begin(), inp.end()) > inp.size()) {
+		return ERR_INVALID_INPUT;
+	}
+
+
+	vector<vector<float>> vec(inp.size());
+
+	for (int i = 0; i < inp.size(); i++) {
+		int bucket = inp[i];
+		vec[bucket].push_back(inp[i]);
+	}
+
+	for (int i = 0; i < inp.size(); i++) {
+		std::sort(vec[i].begin(), vec[i].end());
+	}
+
+	vector<float> vecs;
+
+	for (int i = 0; i < vec.size(); i++) {
+		for (int j = 0; j < vec[i].size(); j++) {
+			vecs.push_back(vec[i][j]);
+		}
+	}
+
+	for (int i = 0; i < inp.size(); i++) {
+		inp[i] = vecs[i];
+	}
+
 
 	return ERR_NO_ERROR;
 }

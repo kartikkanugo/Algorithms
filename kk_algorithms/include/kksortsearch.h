@@ -56,9 +56,36 @@ public:
 	* Can be used for the floating points
 	*/
 	kerr_t bucket_sort(vector<float>& inp);
+	/**
+	* Radix sort has a worst case of O(n),
+	* It is used by sorting units place, tens place and hundreds place
+	* It is similar to counting sort
+	*/
+	kerr_t radix_sort(vector<int>& inp);
 
 
 
+
+};
+
+
+class Kksearch {
+
+public:
+	kerr_t linear_search(vector<int>& inp, const int val, k_result* res);
+
+
+	/**
+		Binary search can be done recursively or iteratively
+		Iteratively is better as we use less memory
+		Note: It only works for a sorted array
+	*/
+	kerr_t binary_search(vector<int>& inp, const int val, k_result* res);
+	/**
+		Interpolation search works only for a sorted array
+	*/
+
+	kerr_t interpolation_search(vector<int>& inp, const int val, k_result* res);
 
 
 };

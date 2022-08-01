@@ -41,10 +41,22 @@ int main() {
 
 	// sorting 
 
-	vector<float> a = { 2.5,3.4,1.23,1.62,2.3,2.2,4.5};
+	vector<int> a = { 123,65,98,235,654};
 	Kksort ob3;
-	ob3.bucket_sort(a);
+	ob3.radix_sort(a);
 	cout << a[0] << a[1] << a[2] << a[3] ;
-	return 0;
 
+
+
+	Kksearch ob4;
+	k_result res4;
+	ret = ob4.binary_search(a, 99, &res4);
+
+	Kktree ob5;
+	int b[] = {1,2,3,4,5,6};
+	TreeNode* node = ob5.init_tree(b, 6);
+		
+
+
+	return 0;
 }

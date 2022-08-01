@@ -298,3 +298,101 @@ kerr_t Kksort::bucket_sort(vector<float>& inp)
 
 	return ERR_NO_ERROR;
 }
+
+
+
+kerr_t counting_radix_sort_internal(vector<int>& inp, const int exp) {
+	
+	int i;
+	vector<int> count(10), output(inp.size()); // const int as there are only 10 digits
+	for (i = 0; i < inp.size(); i++) {
+		count[(inp[i]/exp)%10]++;
+	}
+
+	for (i = 1; i < 10; i++) {
+		count[i] += count[i - 1];
+	}
+	
+	for (i = inp.size() -1; i > -1; i--) {
+		output[count[(inp[i] / exp) % 10] - 1] = inp[i];
+		count[(inp[i] / exp) % 10]--;
+	}
+
+	for (i = 0; i < inp.size(); i++) {
+		inp[i] = output[i];
+	}
+
+
+	
+	return ERR_NO_ERROR;
+}
+
+kerr_t Kksort::radix_sort(vector<int>& inp) {
+
+	int max = *std::max_element(inp.begin(), inp.end());
+
+	for (int exp = 1; max / exp > 0; exp *= 10) {
+
+		counting_radix_sort_internal(inp, exp);
+
+	}
+
+	return ERR_NO_ERROR;
+}
+
+
+
+//SEARCHING
+
+kerr_t Kksearch::linear_search(vector<int>& inp, const int val, k_result *res)
+{
+	int end = inp.size()-1;
+	for (int start = 0; start <= end;) {
+		if (inp[start] == val) {
+			res->res_integer = start;
+			return ERR_NO_ERROR;
+		}
+
+		if (inp[end] == val) {
+			res->res_integer = end;
+			return ERR_NO_ERROR;
+		}
+
+		start++;
+		end--;
+	}
+	return ERR_INVALID_INPUT;
+}
+
+kerr_t Kksearch::binary_search(vector<int>& inp, const int val, k_result* res) {
+
+	int left = 0;
+	int right = inp.size() - 1;
+	int mid;
+
+
+	while (left <= right) {
+
+		mid = left + (right - left) / 2;
+		if (inp[mid] == val) {
+			res->res_integer = mid;
+			return ERR_NO_ERROR;
+		}
+		else if (inp[mid] < val) {
+			left = mid + 1;
+		}
+		else {
+			right = mid - 1;
+		}
+
+	}
+
+	return ERR_INVALID_INPUT;
+
+
+}
+
+kerr_t Kksearch::interpolation_search(vector<int>& inp, const int val, k_result* res)
+{
+	return ERR_INVALID_INPUT;
+}
